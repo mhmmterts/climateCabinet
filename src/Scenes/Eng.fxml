@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="parentPane" prefHeight="454.0" prefWidth="615.0" style="-fx-background-color: #d8e3e7;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneController">
+   <children>
+      <AnchorPane id="login" fx:id="loginPane" prefHeight="603.0" prefWidth="928.0">
+         <children>
+            <AnchorPane fx:id="engloginpane_" prefHeight="603.0" prefWidth="270.0" style="-fx-background-color: #3d84b8;" AnchorPane.leftAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="58.0" fitWidth="64.0" layoutX="106.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/powermax.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="37.0" layoutY="229.0" prefHeight="58.0" prefWidth="195.0" text="Burn-IN Tester" textFill="WHITE">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="58.0" fitWidth="59.0" layoutX="566.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/login2.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="452.0" layoutY="144.0">
+               <children>
+                  <TextField fx:id="txtId" focusTraversable="false" layoutX="10.0" layoutY="53.0" prefHeight="34.0" prefWidth="275.0" promptText="id" />
+                  <PasswordField fx:id="txtPassword" focusTraversable="false" layoutX="10.0" layoutY="125.0" prefHeight="34.0" prefWidth="275.0" promptText="password" />
+                  <Button fx:id="login_button" focusTraversable="false" layoutX="60.0" layoutY="212.0" mnemonicParsing="false" onAction="#login_button_isClicked" pickOnBounds="false" prefHeight="34.0" prefWidth="175.0" text="Sign In" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lblErrors" layoutX="10.0" layoutY="177.0" prefHeight="25.0" prefWidth="275.0" />
+               </children>
+            </Pane>
+            <Button layoutX="771.0" layoutY="30.0" mnemonicParsing="false" onAction="#btnEN" text="English" />
+            <Button layoutX="843.0" layoutY="30.0" mnemonicParsing="false" onAction="#btnDE" text="German" />
+            <Label fx:id="label" layoutX="789.0" layoutY="67.0" prefHeight="18.0" prefWidth="117.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="schrankauswahl" fx:id="schrankPane" prefHeight="603.0" prefWidth="921.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <AnchorPane prefHeight="603.0" prefWidth="270.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Label layoutX="26.0" layoutY="217.0" prefHeight="58.0" prefWidth="218.0" text="CABINET SELECTION" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="98.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/closet.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Pane layoutX="464.0" layoutY="153.0" prefHeight="236.0" prefWidth="269.0">
+                     <children>
+                        <Button fx:id="confirm_button" focusTraversable="false" layoutX="62.0" layoutY="118.0" mnemonicParsing="false" onAction="#confirm_button_isClicked" prefHeight="34.0" prefWidth="137.0" text="To confirm" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <ComboBox fx:id="schrankauswahl_comboBox" focusTraversable="false" layoutX="37.0" layoutY="14.0" prefHeight="34.0" prefWidth="196.0" value="Cabinet1" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="menuAdmin" fx:id="menuAdminPane" prefHeight="603.0" prefWidth="921.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <Pane layoutX="450.0" layoutY="129.0">
+                     <children>
+                        <Button fx:id="settings_button" focusTraversable="false" layoutX="14.0" layoutY="110.0" mnemonicParsing="false" onAction="#settings_button_isClicked" pickOnBounds="false" prefHeight="34.0" prefWidth="275.0" text="SETTINGS" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="exit_button" focusTraversable="false" layoutX="14.0" layoutY="173.0" mnemonicParsing="false" onAction="#exit_button_isClicked" pickOnBounds="false" prefHeight="34.0" prefWidth="275.0" text="EXIT PROGRAM" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="testbetrieb_button" focusTraversable="false" layoutX="14.0" layoutY="44.0" mnemonicParsing="false" onAction="#testbetrieb_button_isClicked" pickOnBounds="false" prefHeight="34.0" prefWidth="275.0" text="TEST OPERATION" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <AnchorPane prefHeight="603.0" prefWidth="270.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="28.0" layoutY="229.0" prefHeight="36.0" prefWidth="213.0" text="MENU" textFill="#fcfbfb">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="98.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="menuBenutzer" fx:id="menuBenutzerPane" prefHeight="603.0" prefWidth="921.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <Button fx:id="testbetrieb_button1" focusTraversable="false" layoutX="464.0" layoutY="218.0" mnemonicParsing="false" onAction="#testbetrieb_button_isClicked" pickOnBounds="false" prefHeight="34.0" prefWidth="275.0" text="TEST OPERATION" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exit_button" focusTraversable="false" layoutX="464.0" layoutY="302.0" mnemonicParsing="false" onAction="#exit_button_isClicked" pickOnBounds="false" prefHeight="34.0" prefWidth="275.0" text="EXIT PROGRAM" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <AnchorPane prefHeight="603.0" prefWidth="270.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="28.0" layoutY="229.0" prefHeight="36.0" prefWidth="213.0" text="MENU" textFill="#fcfbfb">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="98.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="settings" fx:id="settingsPane" prefHeight="603.0" prefWidth="921.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <AnchorPane prefHeight="603.0" prefWidth="270.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="28.0" layoutY="229.0" prefHeight="36.0" prefWidth="213.0" text="SETTINGS" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="74.0" fitWidth="77.0" layoutX="98.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/mechanical-gears-.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Pane layoutX="303.0" layoutY="158.0" />
+                  <Button fx:id="benutzerstellung" focusTraversable="false" layoutX="464.0" layoutY="193.0" mnemonicParsing="false" onAction="#benutzerstellung_is_Clicked" pickOnBounds="false" prefHeight="34.0" prefWidth="275.0" text="USER SETTINGS" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="schrankstellung" focusTraversable="false" layoutX="464.0" layoutY="284.0" mnemonicParsing="false" onAction="#schrankstellung_is_Clicked" pickOnBounds="false" prefHeight="34.0" prefWidth="275.0" text="CABINET SETTINGS" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="benutzerEinstellungen" fx:id="benutzerSettingsPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <AnchorPane id="produkt_pane" layoutX="-1.0" prefHeight="510.0" prefWidth="471.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Label layoutX="90.0" layoutY="40.0" prefHeight="27.0" prefWidth="250.0" text="Add user:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="108.0" text="User-ID:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="bauteil_txtfield" fx:id="benutzerid_txtfield" focusTraversable="false" layoutX="122.0" layoutY="104.0" prefHeight="34.0" prefWidth="169.0" promptText="User-ID " />
+                        <Label layoutX="13.0" layoutY="163.0" text="Password:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="auftrag_txtfield" fx:id="benutzerPassword_txtfield" focusTraversable="false" layoutX="122.0" layoutY="158.0" prefHeight="34.0" prefWidth="169.0" promptText="Password" />
+                        <Button id="hinzufügen_button" fx:id="benutzerhinzufuegen_button" focusTraversable="false" layoutX="81.0" layoutY="399.0" mnemonicParsing="false" onAction="#benutzerhinzufuegen_buttonClicked" prefHeight="18.0" prefWidth="134.0" text="Add" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="15.0" layoutY="219.0" text="Name:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="auftrag_txtfield" fx:id="benutzerName_txtfield" focusTraversable="false" layoutX="122.0" layoutY="214.0" prefHeight="34.0" prefWidth="169.0" promptText="Name" />
+                        <Label layoutX="13.0" layoutY="275.0" text="Surname:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="auftrag_txtfield" fx:id="benutzerNachame_txtfield" focusTraversable="false" layoutX="122.0" layoutY="271.0" prefHeight="34.0" prefWidth="169.0" promptText="Surname " />
+                        <Label fx:id="lblStatus" layoutX="22.0" layoutY="370.0" prefHeight="20.0" prefWidth="319.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="15.0" layoutY="321.0" text="Rolle:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="slot_comboBox3" focusTraversable="false" layoutX="122.0" layoutY="325.0" prefHeight="30.0" prefWidth="169.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="erfolgreich_pane" prefHeight="214.0" prefWidth="333.0" visible="false">
+                     <children>
+                        <Label layoutX="7.0" layoutY="95.0" prefHeight="38.0" prefWidth="430.0" style="-fx-background-color: #3d84b8;" text="All devices are successfully registered" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="136.0" fitWidth="104.0" layoutX="154.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/tick-inside-circle.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="560.0" layoutY="36.0" prefHeight="35.0" prefWidth="261.0" text="Remove user:" textFill="#3d84b8">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button id="entfernen_button" fx:id="benutzerentfernen_button" focusTraversable="false" layoutX="587.0" layoutY="165.0" mnemonicParsing="false" onAction="#benutzerentfernen_buttonClicked" prefHeight="30.0" prefWidth="134.0" text="Remove" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="507.0" layoutY="99.0" text="User-ID:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField id="bauteil_txtfield" fx:id="benutzerid_txtfield1" focusTraversable="false" layoutX="636.0" layoutY="96.0" prefHeight="34.0" prefWidth="169.0" promptText="User-ID " />
+                  <Line endX="188.0" endY="0.5999755859375" layoutX="733.0" layoutY="510.0" startX="-734.0" startY="0.5999755859375" stroke="#3d84b8" />
+                  <Label fx:id="lblStatus1" layoutX="534.0" layoutY="138.0" prefHeight="18.0" prefWidth="271.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="menuzuruckgehen" focusTraversable="false" layoutX="344.0" layoutY="537.0" mnemonicParsing="false" onAction="#menuzuruckgehen_isClicked" prefHeight="27.0" prefWidth="252.0" text="RETURN MENU" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="schrankEinstellungen" fx:id="schrankSettingsPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <AnchorPane id="produkt_pane" prefHeight="510.0" prefWidth="471.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Label layoutX="97.0" layoutY="45.0" prefHeight="35.0" prefWidth="255.0" text="Add cabinet:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="34.0" layoutY="119.0" text="Cabinet-ID:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="bauteil_txtfield" fx:id="schrankid_txtfield1" focusTraversable="false" layoutX="164.0" layoutY="116.0" prefHeight="34.0" prefWidth="169.0" promptText="Cabinet-ID " />
+                        <Button id="hinzufügen_button" fx:id="schrankhinzufuegen_button" focusTraversable="false" layoutX="97.0" layoutY="249.0" mnemonicParsing="false" onAction="#schrankhinzufuegen_buttonClicked" prefHeight="18.0" prefWidth="134.0" text="Add" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="lblStatusSchrank1" layoutX="17.0" layoutY="327.0" prefHeight="18.0" prefWidth="279.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="183.0" text="User-ID:">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="bauteil_txtfield" fx:id="schrank_benutzerid" focusTraversable="false" layoutX="164.0" layoutY="180.0" prefHeight="34.0" prefWidth="169.0" promptText="User-ID" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="erfolgreich_pane" prefHeight="214.0" prefWidth="333.0" visible="false">
+                     <children>
+                        <Label layoutX="7.0" layoutY="95.0" prefHeight="38.0" prefWidth="408.0" style="-fx-background-color: #3d84b8;" text="All devices are successfully registered" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="136.0" fitWidth="104.0" layoutX="154.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/tick-inside-circle.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="589.0" layoutY="47.0" prefHeight="35.0" prefWidth="243.0" text="Remove cabinet:" textFill="#3d84b8">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button id="entfernen_button" fx:id="schrankentfernen_button" focusTraversable="false" layoutX="604.0" layoutY="186.0" mnemonicParsing="false" onAction="#schrankentfernen_buttonClicked" prefHeight="30.0" prefWidth="134.0" text="Remove" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="538.0" layoutY="121.0" text="Cabinet-ID:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField id="bauteil_txtfield" fx:id="schrankid_txtfield" focusTraversable="false" layoutX="671.0" layoutY="118.0" prefHeight="34.0" prefWidth="169.0" promptText="Cabinet-ID " />
+                  <Button fx:id="menuzuruckgehen1" focusTraversable="false" layoutX="349.0" layoutY="528.0" mnemonicParsing="false" onAction="#menuzuruckgehen_isClicked" prefHeight="27.0" prefWidth="252.0" text="RETURN MENU" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Line endX="481.29290771484375" endY="0.5999755859375" layoutX="440.0" layoutY="510.0" startX="-440.0" startY="0.5999755859375" stroke="#3d84b8" />
+                  <Label fx:id="lblStatusSchrank" layoutX="335.0" layoutY="327.0" prefHeight="18.0" prefWidth="279.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="initStarten" fx:id="initialisierungStartPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #3d84b8;">
+               <children>
+                  <Button fx:id="initStart_button" focusTraversable="false" layoutX="247.0" layoutY="256.0" mnemonicParsing="false" onAction="#initialisierungStart_button_isClicked" prefHeight="92.0" prefWidth="434.0" text="Start initialization" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="67.0" fitWidth="80.0" layoutX="431.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-sync-64.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="abbrechen_button" focusTraversable="false" layoutX="48.0" layoutY="474.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="62.0" prefWidth="134.0" text="ABORT" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="initialisierung" fx:id="initialisierungPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <Label fx:id="time_label" alignment="CENTER" focusTraversable="false" layoutX="274.0" layoutY="260.0" prefHeight="84.0" prefWidth="381.0" stylesheets="@../Styles/label.css" text="00:00:00" textFill="#150300">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Button fx:id="init_weiter_Button" focusTraversable="false" layoutX="739.0" layoutY="474.0" mnemonicParsing="false" onAction="#weiterZumTestProduktCheckIn_button_isClicked" prefHeight="62.0" prefWidth="134.0" text="FURTHER" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <AnchorPane prefHeight="121.0" prefWidth="928.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Label layoutX="351.0" layoutY="61.0" prefHeight="62.0" prefWidth="226.0" text="Remaining time:" textFill="WHITE">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="62.0" fitWidth="55.0" layoutX="437.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/chronometer.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="abbrechen_button111" focusTraversable="false" layoutX="58.0" layoutY="484.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="62.0" prefWidth="134.0" text="ABORT" textFill="#114e60">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="weiterZumTestProduktCheckIn" fx:id="weiterZumTestProduktCheckInPane" prefHeight="459.0" prefWidth="615.0" visible="false">
+         <children>
+            <AnchorPane id="weiterZumTextProduktCheckIn" fx:id="weiterZumTextProduktCheckInPane" prefHeight="454.0" prefWidth="615.0">
+               <children>
+                  <AnchorPane prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+                     <children>
+                        <Button fx:id="testProduktStart_button" focusTraversable="false" layoutX="248.0" layoutY="302.0" mnemonicParsing="false" onAction="#testProduktCheckStart_button_isClicked" prefHeight="92.0" prefWidth="434.0" text="Test product check-in" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="402.0" layoutY="245.0" text="Go to:" textFill="#114e60">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="215.0" layoutY="63.0" prefHeight="35.0" prefWidth="499.0" style="-fx-background-color: #3d84b8;" text="Initialization process ended successfully!" textFill="#ffffffdf">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="124.0" fitWidth="110.0" layoutX="409.0" layoutY="118.0" opacity="0.86" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/tick-inside-circle.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="abbrechen_button" focusTraversable="false" layoutX="48.0" layoutY="474.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="62.0" prefWidth="134.0" text="ABORT" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="testProduktCheckIn" fx:id="testProduktCheckInPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <TableView id="burnintest_table" fx:id="burnintest_table" focusTraversable="false" layoutX="421.0" layoutY="26.0" prefHeight="301.0" prefWidth="471.0">
+                     <columns>
+                        <TableColumn id="slot_column" fx:id="slot_column" prefWidth="75.0" text="Slot" />
+                        <TableColumn id="bauteil_column" fx:id="bauteil_column" prefWidth="75.0" text="Component ID" />
+                        <TableColumn id="auftrag_column" fx:id="auftrag_column" prefWidth="75.0" text="Assignment" />
+                        <TableColumn id="ergebnis_column" fx:id="ergebnis_column" prefWidth="75.0" text="Result" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <AnchorPane id="produkt_pane" fx:id="produkt_pane1" layoutX="-1.0" prefHeight="603.0" prefWidth="388.0" style="-fx-background-color: #3d84b8;">
+                     <children>
+                        <Button fx:id="abbrechen_button2" focusTraversable="false" layoutX="56.0" layoutY="532.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="27.0" prefWidth="252.0" text="ABORT" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="91.0" layoutY="14.0" prefHeight="27.0" prefWidth="181.0" text="Add product:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="112.0" text="Component ID:">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField id="bauteil_txtfield" fx:id="bauteil_textfield" focusTraversable="false" layoutX="164.0" layoutY="112.0" prefHeight="25.0" prefWidth="150.0" promptText="Component ID " />
+                        <Label layoutX="16.0" layoutY="164.0" text="Assignment:">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField id="auftrag_txtfield" fx:id="auftrag_textfield" focusTraversable="false" layoutX="164.0" layoutY="164.0" prefHeight="25.0" prefWidth="150.0" promptText="Assignment " />
+                        <Button id="hinzufügen_button" fx:id="hinzufuegen_button1" focusTraversable="false" layoutX="114.0" layoutY="228.0" mnemonicParsing="false" onAction="#hinzufuegen_buttonClicked" prefHeight="30.0" prefWidth="134.0" text="Add" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="92.0" layoutY="302.0" prefHeight="27.0" prefWidth="181.0" text="Remove product:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="61.0" text="Slot:">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button id="entfernen_button" fx:id="entfernen_button" focusTraversable="false" layoutX="115.0" layoutY="380.0" mnemonicParsing="false" onAction="#entfernen_gerateData" prefHeight="30.0" prefWidth="134.0" text="Remove" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <ComboBox id="slot_combobox" fx:id="slot_comboBox" focusTraversable="false" layoutX="164.0" layoutY="60.0" prefHeight="27.0" prefWidth="150.0" />
+                        <Line endX="270.39996337890625" endY="-1.4000091552734375" layoutX="116.0" layoutY="287.0" startX="-116.0" startY="1.52587890625E-5" />
+                        <Line endX="270.39996337890625" endY="-1.4000091552734375" layoutX="115.0" layoutY="506.0" startX="-116.0" startY="1.52587890625E-5" />
+                        <Label id="hinzufügen_label" fx:id="hinzufuegen_label" layoutX="17.0" layoutY="203.0" prefHeight="18.0" prefWidth="299.0" />
+                        <Label layoutX="38.0" layoutY="439.0" text="Select the slot that you want from the table&#10;             want to remove and click &#10;                       You on remove.">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="entfernen_label" layoutX="48.0" layoutY="339.0" prefHeight="25.0" prefWidth="271.0" stylesheets="@../Styles/label.css" textAlignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="erfolgreich_pane" fx:id="erfolgreich_pane1" prefHeight="214.0" prefWidth="333.0" visible="false">
+                     <children>
+                        <Label layoutX="7.0" layoutY="95.0" prefHeight="38.0" prefWidth="408.0" style="-fx-background-color: #3d84b8;" text="All devices are successfully registered" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="136.0" fitWidth="104.0" layoutX="154.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/tick-inside-circle.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="fertig_pane" fx:id="fertig_pane1" layoutX="483.0" layoutY="359.0" prefHeight="200.0" prefWidth="347.0">
+                     <children>
+                        <Button id="fertig_button" fx:id="fertig_button" focusTraversable="false" layoutX="73.0" layoutY="14.0" mnemonicParsing="false" onAction="#fertig_button_isClicked" prefHeight="95.0" prefWidth="220.0" text="Finished" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="38.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="13.0" layoutY="137.0" text="When you have registered all products&#10;                 click Done!" textFill="#007081">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="funktest_pane" fx:id="funktest_pane1" layoutX="364.0" layoutY="346.0" prefHeight="200.0" prefWidth="516.0" visible="false">
+                     <children>
+                        <Button id="funktest_button" fx:id="funktest_button" focusTraversable="false" layoutX="192.0" layoutY="26.0" mnemonicParsing="false" onAction="#funktest_button_isClicked" prefHeight="95.0" prefWidth="199.0" text="Function test &#10;     Starten" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="achtung_label" alignment="CENTER" layoutX="514.0" layoutY="338.0" prefHeight="27.0" prefWidth="285.0" textFill="#ee0606">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="vortest" fx:id="vortestPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" maxHeight="603.0" maxWidth="928.0" minHeight="603.0" minWidth="928.0" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <TableView id="burnintest_table" fx:id="burnintest_table1" focusTraversable="false" layoutX="191.0" layoutY="30.0" prefHeight="267.0" prefWidth="551.0">
+                     <columns>
+                        <TableColumn id="slot_clmn" fx:id="slot_column1" prefWidth="75.0" text="Slot" />
+                        <TableColumn id="bauteil_clmn" fx:id="bauteil_column1" prefWidth="75.0" text="Component ID" />
+                        <TableColumn id="auftrag_clmn" fx:id="auftrag_column1" prefWidth="116.0" text="Assignment" />
+                        <TableColumn id="ergebnis_clmn" fx:id="ergebnis_column1" prefWidth="129.00006103515625" text="Result" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <AnchorPane id="pruef_pane" fx:id="pruef_pane" layoutX="257.0" layoutY="323.0" minWidth="243.0" prefHeight="114.0" prefWidth="430.0" style="-fx-background-color: #d8e3e7;">
+                     <children>
+                        <Label fx:id="slot_pruef_label" layoutX="190.0" layoutY="43.0" prefHeight="17.0" prefWidth="213.0" text="Slot x is checked ..." textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label id="prüf_timer_label" fx:id="pruef_time_label" layoutX="57.0" layoutY="86.0" text="00:00:00" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="78.0" fitWidth="102.0" layoutX="54.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/chronometer.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="fehler_pane" fx:id="fehler_pane" layoutX="54.0" layoutY="305.0" prefHeight="266.0" prefWidth="824.0" style="-fx-background-color: #d8e3e7;" visible="false">
+                     <children>
+                        <Label fx:id="fehler_label" alignment="CENTER" layoutX="140.0" layoutY="14.0" prefHeight="35.0" prefWidth="551.0" text="Defective products recognized!" textFill="#e0291f">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Button id="kontroll_button" fx:id="kontroll_button" focusTraversable="false" layoutX="655.0" layoutY="176.0" mnemonicParsing="false" onAction="#kontroll_button_isClicked" prefHeight="62.0" text="CHECK" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="316.0" layoutY="59.0" prefHeight="27.0" prefWidth="181.0" text="Remove product:" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button id="entfernen_button" fx:id="entfernen_button1" focusTraversable="false" layoutX="339.0" layoutY="137.0" mnemonicParsing="false" onAction="#entfernenFehlerhafteProdukte" prefHeight="30.0" prefWidth="134.0" text="Remove" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="262.0" layoutY="196.0" text="Select the slot that has the faulty &#10;              Product contains and click &#10;                       You on remove.">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="entfernen_label1" layoutX="272.0" layoutY="96.0" prefHeight="25.0" prefWidth="271.0" stylesheets="@../Styles/label.css" textAlignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="abbrechen_button3" focusTraversable="false" layoutX="5.0" layoutY="180.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="62.0" prefWidth="134.0" text="ABORT" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="bevorHaupttest_pane" fx:id="bevorHaupttest_pane" layoutX="68.0" layoutY="309.0" minWidth="400.0" prefHeight="258.0" prefWidth="803.0" style="-fx-background-color: #d8e3e7;" visible="false">
+                     <children>
+                        <Label layoutX="86.0" layoutY="54.0" style="-fx-background-color: #3d84b8;" text="All test products are OK and ready for main test" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Button id="haupttest_start_button" fx:id="haupttest_start_button" focusTraversable="false" layoutX="600.0" layoutY="173.0" mnemonicParsing="false" onAction="#haupttestStartButton_isClicked" prefHeight="62.0" text="START MAIN TEST" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="99.0" fitWidth="90.0" layoutX="367.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/tick-inside-circle.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="abbrechen_button31" focusTraversable="false" layoutX="-8.0" layoutY="175.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="62.0" prefWidth="134.0" text="ABORT" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="bevorNachtest_pane" fx:id="bevorNachtest_pane" layoutX="41.0" layoutY="301.0" prefHeight="246.0" prefWidth="832.0" style="-fx-background-color: #d8e3e7;" visible="false">
+                     <children>
+                        <Label text="Add product:" textFill="#007081">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="26.0" text="Slot:" textFill="#007081">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="62.0" text="Component ID:" textFill="#007081">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="97.0" text="Assignment:" textFill="#007081">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="bauteil_txtfield" fx:id="bauteil_textfield2" focusTraversable="false" layoutX="117.0" layoutY="63.0" prefHeight="25.0" prefWidth="159.0" promptText="Component ID" />
+                        <TextField id="auftrag_txtfield" fx:id="auftrag_textfield2" focusTraversable="false" layoutX="117.0" layoutY="98.0" prefHeight="25.0" prefWidth="159.0" promptText="Assignment" />
+                        <ComboBox id="slot_combobox" fx:id="slot_comboBox2" focusTraversable="false" layoutX="117.0" layoutY="27.0" prefHeight="26.0" prefWidth="159.0" />
+                        <Button id="hinzufügen_button" fx:id="hinzufuegen_button" focusTraversable="false" layoutX="130.0" layoutY="155.0" mnemonicParsing="false" onAction="#hinzufuegen_buttonClicked" prefHeight="29.0" prefWidth="134.0" text="Add" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button id="nachtest_buttonlabe" fx:id="nachtest_button" focusTraversable="false" layoutX="613.0" layoutY="204.0" mnemonicParsing="false" onAction="#nachtest_button_isClicked" prefHeight="62.0" text="START AFTER TEST" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="362.0" layoutY="44.0" text="Removed all defective products" textFill="#007081">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Button id="abbrechen_button" fx:id="abbrechen_button12" focusTraversable="false" layoutY="204.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="62.0" prefWidth="134.0" text="ABORT" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="56.0" fitWidth="55.0" layoutX="524.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/tick-inside-circle.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="hinzufuegen_label2" alignment="CENTER" layoutX="18.0" layoutY="130.0" prefHeight="20.0" prefWidth="319.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="nachtest_pane" fx:id="nachtest_pane" layoutX="220.0" layoutY="304.0" prefHeight="189.0" prefWidth="492.0" style="-fx-background-color: #d8e3e7;" visible="false">
+                     <children>
+                        <Label fx:id="nachtestinit_label" layoutX="167.0" layoutY="48.0" text="Initialization" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nachtestcheck_label" disable="true" layoutX="329.0" layoutY="48.0" text="Function check" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label id="init_timer_label" fx:id="init_timer_label" layoutX="189.0" layoutY="86.0" text="00:00:00" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label id="check_timer_label" fx:id="check_timer_label" disable="true" layoutX="359.0" layoutY="86.0" text="00:00:00" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="114.0" fitWidth="117.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/chronometer.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="slot_pruef_label2" layoutX="195.0" layoutY="139.0" prefHeight="17.0" prefWidth="213.0" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Button id="sorunvar" fx:id="sorunvar" focusTraversable="false" layoutX="678.0" layoutY="522.0" mnemonicParsing="false" onAction="#sorunvar_isClicked" text="Sorun var" textFill="#114e60" visible="false" />
+                  <Button id="sorunyok" fx:id="sorunyok" focusTraversable="false" layoutX="757.0" layoutY="522.0" mnemonicParsing="false" onAction="#sorunyok_isClicked" text="Sorun yok" textFill="#114e60" visible="false" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="haupttest" fx:id="haupttestPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane fx:id="anchorHaupttest" accessibleRole="TEXT" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <Label fx:id="haupttest_label" alignment="CENTER" focusTraversable="false" layoutX="32.0" layoutY="20.0" prefHeight="17.0" prefWidth="467.0" style="-fx-background-color: #3d84b8;" stylesheets="@../Styles/label.css" text="Main test runs ..." textFill="#fcecdd" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="91.0" layoutY="187.0" prefHeight="48.0" prefWidth="210.0" text=" Elapsed time  : " textFill="#aa2b1d" AnchorPane.leftAnchor="91.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="91.0" layoutY="245.0" prefHeight="48.0" prefWidth="210.0" text=" IS temperature     : " textFill="#aa2b1d">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="301.0" layoutY="245.0" prefHeight="48.0" prefWidth="82.0" text="0005.3 C">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="verstrZeit_label" layoutX="301.0" layoutY="187.0" prefHeight="48.0" prefWidth="98.0" text="00:00:00">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="464.0" layoutY="245.0" prefHeight="48.0" prefWidth="210.0" text="Target temperature        : " textFill="#aa2b1d" AnchorPane.rightAnchor="253.60000000000002">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="464.0" layoutY="187.0" prefHeight="48.0" prefWidth="250.0" text="Estimated test duration  : " textFill="#aa2b1d" AnchorPane.rightAnchor="213.60000000000002">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="724.0" layoutY="245.0" prefHeight="48.0" prefWidth="112.0" text="     0040.0 C" AnchorPane.rightAnchor="92.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="testDauer_label" layoutX="719.0" layoutY="187.0" prefHeight="48.0" prefWidth="122.0" text="     11:00:00" AnchorPane.rightAnchor="86.60000000000002">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar fx:id="progress_bar" focusTraversable="false" layoutX="77.0" layoutY="324.0" prefHeight="18.0" prefWidth="683.0" progress="0.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="115.0">
+                     <effect>
+                        <ColorAdjust hue="-0.31" saturation="-0.07" />
+                     </effect>
+                  </ProgressBar>
+                  <Button fx:id="pause_button" focusTraversable="false" layoutX="71.0" layoutY="373.0" mnemonicParsing="false" onAction="#pause_isClicked" prefHeight="9.0" prefWidth="238.0" text="Pause" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="abbrechenTest_button" focusTraversable="false" layoutX="71.0" layoutY="435.0" mnemonicParsing="false" onAction="#abbrechen_button_isClicked" prefHeight="39.0" prefWidth="238.0" text="Abort" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="geciciweiter_button" disable="true" focusTraversable="false" layoutX="681.0" layoutY="393.0" mnemonicParsing="false" onAction="#geciciWeiterButton_isClicked" prefHeight="48.0" prefWidth="150.0" text="Further" textFill="#114e60">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font></Button>
+                  <ImageView fitHeight="60.0" fitWidth="82.0" layoutX="196.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/celsius.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="funktionscheck" fx:id="funktionCheckPane" prefHeight="603.0" prefWidth="928.0" visible="false">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="603.0" prefWidth="928.0" style="-fx-background-color: #d8e3e7;">
+               <children>
+                  <AnchorPane id="alleProdukteOK" fx:id="alleProdukteOK_pane" layoutX="162.0" layoutY="330.0" prefHeight="200.0" prefWidth="614.0" visible="false">
+                     <children>
+                        <Label fx:id="testInOrdnung_text" alignment="CENTER" prefHeight="87.0" prefWidth="614.0" style="-fx-background-color: #beca5c;" stylesheets="@../Styles/label.css" text="All products are ok and passed the main test!" textFill="#206a5d">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="53.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-test-passed-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Button fx:id="testInOrdnung_button" focusTraversable="false" layoutX="148.0" layoutY="108.0" mnemonicParsing="false" onAction="#testInOrdnung_isClicked" prefHeight="59.0" prefWidth="319.0" stylesheets="@../Styles/label.css" text="Save and check out all results" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="alleProdukteNichtOK" fx:id="alleProdukteNichtOK_pane" layoutX="162.0" layoutY="330.0" prefHeight="200.0" prefWidth="614.0" visible="false">
+                     <children>
+                        <Button fx:id="testInOrdnung2_button" focusTraversable="false" layoutX="148.0" layoutY="108.0" mnemonicParsing="false" onAction="#inOrdnung_button_isClicked" prefHeight="59.0" prefWidth="319.0" stylesheets="@../Styles/label.css" text="All right products save and check out" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="testNichtInOrdnung_label" alignment="CENTER" ellipsisString="" prefHeight="87.0" prefWidth="614.0" style="-fx-background-color: #ff9999;" stylesheets="@../Styles/label.css" text="Some products did not pass the main test!" textFill="#e1150e">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="59.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-scorecard-30.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <Button fx:id="testNichtInOrdnung_button" alignment="CENTER" focusTraversable="false" layoutX="148.0" layoutY="108.0" mnemonicParsing="false" onAction="#nichtinOrdnung_button_isClicked" prefHeight="59.0" prefWidth="319.0" stylesheets="@../Styles/label.css" text="Out of order products&#10;save and check out" textAlignment="RIGHT" textFill="#d02507">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="ende" fx:id="ende_pane" layoutX="162.0" layoutY="330.0" prefHeight="200.0" prefWidth="614.0" visible="false">
+                     <children>
+                        <Button fx:id="ende_button" focusTraversable="false" layoutX="148.0" layoutY="108.0" mnemonicParsing="false" onAction="#endeClicked" prefHeight="59.0" prefWidth="319.0" stylesheets="@../Styles/label.css" text="Ende" textFill="#114e60">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" prefHeight="87.0" prefWidth="614.0" style="-fx-background-color: #beca5c;" stylesheets="@../Styles/label.css" text=" All test products saved and checked out" textFill="#206a5d">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="79.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-save-close-80.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <TableView id="burnintest_table" fx:id="burnintest_table2" focusTraversable="false" layoutX="157.0" layoutY="30.0" prefHeight="249.0" prefWidth="614.0">
+                     <columns>
+                        <TableColumn id="slot_clmn" fx:id="slot_column2" prefWidth="75.0" text="Slot" />
+                        <TableColumn id="bauteil_clmn" fx:id="bauteil_column2" prefWidth="75.0" text="Component ID" />
+                        <TableColumn id="auftrag_clmn" fx:id="auftrag_column2" prefWidth="75.0" text="Assignment" />
+                        <TableColumn id="ergebnis_clmn" fx:id="ergebnis_column2" prefWidth="75.0" text="Result" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
