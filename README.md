@@ -1,5 +1,7 @@
 # climateCabinet
 **********************************************************
+This software allows us to control the test stages of the products by connecting to the climate cabinet.
+**********************************************************
 <b>This project was made with the participation of:</b> <br>
 Muhammet Ertaş <br>
 Emre Davud Can <br>
