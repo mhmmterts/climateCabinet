@@ -2,14 +2,6 @@
 **********************************************************
 This software allows us to control the test stages of the products by connecting to the climate cabinet.
 **********************************************************
-<b>This project was made with the participation of:</b> <br>
-Muhammet Ertaş <br>
-Emre Davud Can <br>
-Asım Tatar <br>
-Kübra Ulusu <br>
-Alperen Asan <br>
-Helin Öykü Demircioğlu
-**********************************************************
 <b>Some bugs fixed:</b> <br>
 -Server socket connection with UI was not working <br>
 -Main test was not working <br>
